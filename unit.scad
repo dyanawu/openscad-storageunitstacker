@@ -1,9 +1,9 @@
 include <MCAD/units/metric.scad>
 
-text("extraspace XS", size = 5, $fn=100);
 
 // units in real life cm: e.g. 1.5m in real life -> 150 here
 // lets us render smaller things lol
+linear_extrude(height = 2) text("extraspace XS", size = 5, $fn=100);
 length = 147;
 width = 132;
 height = 137;
@@ -12,7 +12,7 @@ grid = [length/4, width/4, height/4];
 
 module placegrid ( vol = [150,120,100], //3-vector of build volume in mm
                    origin = [0,0],      //coordinates of origin
-                   grid = [10, 10, 10], //grid spacing in mm for each axis
+                   grid = [10,10,10], //grid spacing in mm for each axis
                    vertalign = 0        //0 = vertical grids aligned to [0,0], 1 = [x max, y max]
 ) {
   translate (-origin) {
@@ -36,7 +36,7 @@ module plane (ax1, ax2, vol,grid) {
 }
 
 module line (vol, axis) {
-  %cube ([
+  cube ([
            (axis[0] ? axis[0]*vol[0] : 0.5),
            (axis[1] ? axis[1]*vol[1] : 0.5),
            (axis[2] ? axis[2]*vol[2] : 0.5)]);
