@@ -29,7 +29,7 @@ module plane (ax1, ax2, vol,grid) {
   array (ax2, vol, grid[1]) line(vol, ax1);
 }
 
-+module line (vol, axis) {
+module line (vol, axis) {
   cube ([
            (axis[0] ? axis[0]*vol[0] : 0.5),
            (axis[1] ? axis[1]*vol[1] : 0.5),

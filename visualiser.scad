@@ -1,4 +1,4 @@
-include <samlas.scad>
+use <samlas.scad>
 include <unit.scad>
 
 // sizes at 1:10
@@ -12,10 +12,7 @@ height = 137;
 storageunit = [length,width,height];
 grid = [length/4, width/4, height/4];
 
-samla(samla_5);
-translate([0, 40, 0]) samla(samla_11);
-
-label("extraspace XS");
+labelled_samla(11);
 
 placegrid (
   vol = storageunit,
